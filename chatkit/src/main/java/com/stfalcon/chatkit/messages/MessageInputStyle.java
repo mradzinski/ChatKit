@@ -20,13 +20,14 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DrawableRes;
-import androidx.core.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 
 import com.stfalcon.chatkit.R;
 import com.stfalcon.chatkit.commons.Style;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 /**
  * Style for MessageInputStyle customization by xml attributes
@@ -180,21 +181,15 @@ class MessageInputStyle extends Style {
     }
 
     protected Drawable getAttachmentButtonBackground() {
-        if (attachmentButtonBackground == -1) {
-            return getSelector(attachmentButtonDefaultBgColor, attachmentButtonDefaultBgPressedColor,
-                    attachmentButtonDefaultBgDisabledColor, R.drawable.mask);
-        } else {
-            return getDrawable(attachmentButtonBackground);
-        }
+        int shape = attachmentButtonBackground != -1 ? attachmentButtonBackground : R.drawable.mask;
+        return getSelector(attachmentButtonDefaultBgColor, attachmentButtonDefaultBgPressedColor,
+                attachmentButtonDefaultBgDisabledColor, shape);
     }
 
     protected Drawable getAttachmentButtonIcon() {
-        if (attachmentButtonIcon == -1) {
-            return getSelector(attachmentButtonDefaultIconColor, attachmentButtonDefaultIconPressedColor,
-                    attachmentButtonDefaultIconDisabledColor, R.drawable.ic_add_attachment);
-        } else {
-            return getDrawable(attachmentButtonIcon);
-        }
+        int shape = attachmentButtonIcon != -1 ? attachmentButtonIcon : R.drawable.ic_add_attachment;
+        return getSelector(attachmentButtonDefaultIconColor, attachmentButtonDefaultIconPressedColor,
+                attachmentButtonDefaultIconDisabledColor, shape);
     }
 
     protected int getAttachmentButtonWidth() {
@@ -210,21 +205,15 @@ class MessageInputStyle extends Style {
     }
 
     protected Drawable getInputButtonBackground() {
-        if (inputButtonBackground == -1) {
-            return getSelector(inputButtonDefaultBgColor, inputButtonDefaultBgPressedColor,
-                    inputButtonDefaultBgDisabledColor, R.drawable.mask);
-        } else {
-            return getDrawable(inputButtonBackground);
-        }
+        int shape = inputButtonBackground != -1 ? inputButtonBackground : R.drawable.mask;
+        return getSelector(inputButtonDefaultBgColor, inputButtonDefaultBgPressedColor,
+                inputButtonDefaultBgDisabledColor, shape);
     }
 
     protected Drawable getInputButtonIcon() {
-        if (inputButtonIcon == -1) {
-            return getSelector(inputButtonDefaultIconColor, inputButtonDefaultIconPressedColor,
-                    inputButtonDefaultIconDisabledColor, R.drawable.ic_send);
-        } else {
-            return getDrawable(inputButtonIcon);
-        }
+        int shape = inputButtonIcon != -1 ? inputButtonIcon : R.drawable.ic_send;
+        return getSelector(inputButtonDefaultIconColor, inputButtonDefaultIconPressedColor,
+                inputButtonDefaultIconDisabledColor, shape);
     }
 
     protected int getInputButtonMargin() {
