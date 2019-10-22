@@ -26,7 +26,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.stfalcon.chatkit.R;
-import com.stfalcon.chatkit.commons.DialogImageLoader;
+import com.stfalcon.chatkit.commons.ContextImageLoader;
 import com.stfalcon.chatkit.commons.ViewHolder;
 import com.stfalcon.chatkit.commons.models.IDialog;
 import com.stfalcon.chatkit.commons.models.IMessage;
@@ -56,7 +56,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
     protected List<DIALOG> items = new ArrayList<>();
     private int itemLayoutId;
     private Class<? extends BaseDialogViewHolder> holderClass;
-    private DialogImageLoader imageLoader;
+    private ContextImageLoader imageLoader;
     private OnDialogClickListener<DIALOG> onDialogClickListener;
     private OnDialogViewClickListener<DIALOG> onDialogViewClickListener;
     private OnDialogLongClickListener<DIALOG> onLongItemClickListener;
@@ -69,7 +69,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
      *
      * @param imageLoader image loading method
      */
-    public DialogsListAdapter(DialogImageLoader imageLoader) {
+    public DialogsListAdapter(ContextImageLoader imageLoader) {
         this(R.layout.chatkit_item_dialog, DialogViewHolder.class, imageLoader);
     }
 
@@ -79,7 +79,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
      * @param itemLayoutId custom list item resource id
      * @param imageLoader  image loading method
      */
-    public DialogsListAdapter(@LayoutRes int itemLayoutId, DialogImageLoader imageLoader) {
+    public DialogsListAdapter(@LayoutRes int itemLayoutId, ContextImageLoader imageLoader) {
         this(itemLayoutId, DialogViewHolder.class, imageLoader);
     }
 
@@ -91,7 +91,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
      * @param imageLoader  image loading method
      */
     public DialogsListAdapter(@LayoutRes int itemLayoutId, Class<? extends BaseDialogViewHolder> holderClass,
-                              DialogImageLoader imageLoader) {
+                              ContextImageLoader imageLoader) {
         this.itemLayoutId = itemLayoutId;
         this.holderClass = holderClass;
         this.imageLoader = imageLoader;
@@ -359,7 +359,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
     /**
      * @return registered image loader
      */
-    public DialogImageLoader getImageLoader() {
+    public ContextImageLoader getImageLoader() {
         return imageLoader;
     }
 
@@ -368,7 +368,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
      *
      * @param imageLoader image loading method
      */
-    public void setImageLoader(DialogImageLoader imageLoader) {
+    public void setImageLoader(ContextImageLoader imageLoader) {
         this.imageLoader = imageLoader;
     }
 
@@ -489,7 +489,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
     public abstract static class BaseDialogViewHolder<DIALOG extends IDialog>
             extends ViewHolder<DIALOG> {
 
-        protected DialogImageLoader imageLoader;
+        protected ContextImageLoader imageLoader;
         protected OnDialogClickListener<DIALOG> onDialogClickListener;
         protected OnDialogLongClickListener<DIALOG> onLongItemClickListener;
         protected OnDialogViewClickListener<DIALOG> onDialogViewClickListener;
@@ -500,7 +500,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
             super(itemView);
         }
 
-        void setImageLoader(DialogImageLoader imageLoader) {
+        void setImageLoader(ContextImageLoader imageLoader) {
             this.imageLoader = imageLoader;
         }
 
@@ -668,14 +668,14 @@ public class DialogsListAdapter<DIALOG extends IDialog>
 
             //Set Dialog avatar
             if (imageLoader != null) {
-                imageLoader.loadImage(ivAvatar, dialog, dialog.getDialogPhoto());
+                imageLoader.loadImage(ivAvatar, dialog);
             }
 
             //Set Last message user avatar
             List users = dialog.getUsers();
             if (users != null) {
                 if (imageLoader != null && lastMessage != null) {
-                    imageLoader.loadImage(ivLastMessageUser, dialog, lastMessage.getUser().getAvatar());
+                    imageLoader.loadImage(ivLastMessageUser, dialog.getLastMessage().getUser());
                 }
                 ivLastMessageUser.setVisibility(dialogStyle.isDialogMessageAvatarEnabled()
                         && users.size() > 1 ? VISIBLE : GONE);

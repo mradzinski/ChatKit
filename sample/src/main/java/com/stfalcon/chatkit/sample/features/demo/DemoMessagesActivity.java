@@ -2,8 +2,6 @@ package com.stfalcon.chatkit.sample.features.demo;
 
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +9,7 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 import com.stfalcon.chatkit.commons.ImageLoader;
+import com.stfalcon.chatkit.commons.models.MessageContentType;
 import com.stfalcon.chatkit.messages.MessagesListAdapter;
 import com.stfalcon.chatkit.sample.R;
 import com.stfalcon.chatkit.sample.common.data.fixtures.MessagesFixtures;
@@ -21,6 +20,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /*
  * Created by troy379 on 04.04.17.
@@ -45,8 +47,15 @@ public abstract class DemoMessagesActivity extends AppCompatActivity
 
         imageLoader = new ImageLoader() {
             @Override
-            public void loadImage(ImageView imageView, String url, Object payload) {
+            public void loadImage(ImageView imageView, String url) {
                 Picasso.with(DemoMessagesActivity.this).load(url).into(imageView);
+            }
+
+            @Override
+            public void loadImage(ImageView imageView, MessageContentType.Image messageContent) {
+                Picasso.with(DemoMessagesActivity.this)
+                        .load(messageContent.getImageUrl())
+                        .into(imageView);
             }
         };
     }

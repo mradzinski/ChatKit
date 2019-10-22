@@ -1,8 +1,5 @@
 package com.stfalcon.chatkit.messages;
 
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.util.SparseArray;
@@ -26,6 +23,10 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
 
 /*
  * Created by troy379 on 31.03.17.
@@ -881,7 +882,7 @@ public class MessageHolders {
         public void onBind(MESSAGE message) {
             super.onBind(message);
             if (image != null && imageLoader != null) {
-                imageLoader.loadImage(image, message.getImageUrl(), getPayloadForImageLoader(message));
+                imageLoader.loadImage(image, message);
             }
 
             if (imageOverlay != null) {
@@ -951,7 +952,7 @@ public class MessageHolders {
         public void onBind(MESSAGE message) {
             super.onBind(message);
             if (image != null && imageLoader != null) {
-                imageLoader.loadImage(image, message.getImageUrl(), getPayloadForImageLoader(message));
+                imageLoader.loadImage(image, message);
             }
 
             if (imageOverlay != null) {
@@ -1068,7 +1069,7 @@ public class MessageHolders {
 
                 userAvatar.setVisibility(isAvatarExists ? View.VISIBLE : View.GONE);
                 if (isAvatarExists) {
-                    imageLoader.loadImage(userAvatar, message.getUser().getAvatar(), null);
+                    imageLoader.loadImage(userAvatar, message.getUser());
                 }
             }
         }
