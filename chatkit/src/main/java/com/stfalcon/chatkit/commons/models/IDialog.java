@@ -18,6 +18,8 @@ package com.stfalcon.chatkit.commons.models;
 
 import java.util.List;
 
+import androidx.annotation.Nullable;
+
 /**
  * For implementing by real dialog model
  */
@@ -30,8 +32,10 @@ public interface IDialog<MESSAGE extends IMessage> {
 
     String getDialogName();
 
+    @Nullable
     List<? extends IUser> getUsers();
 
+    @Nullable
     MESSAGE getLastMessage();
 
     void setLastMessage(MESSAGE message);

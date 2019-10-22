@@ -331,11 +331,22 @@ public class DialogsListAdapter<DIALOG extends IDialog>
         Collections.sort(items, new Comparator<DIALOG>() {
             @Override
             public int compare(DIALOG o1, DIALOG o2) {
-                if (o1.getLastMessage().getCreatedAt().after(o2.getLastMessage().getCreatedAt())) {
+                IMessage lastO1 = o1.getLastMessage();
+                IMessage lastO2 = o2.getLastMessage();
+
+                if(lastO1 == null && lastO2 == null) {
+                    return 0;
+                } else if (lastO1 != null && lastO2 == null) {
                     return -1;
-                } else if (o1.getLastMessage().getCreatedAt().before(o2.getLastMessage().getCreatedAt())) {
+                } else if (lastO1 == null) {
                     return 1;
-                } else return 0;
+                } else {
+                    if (lastO1.getCreatedAt().after(lastO2.getCreatedAt())) {
+                        return -1;
+                    } else if (lastO1.getCreatedAt().before(lastO2.getCreatedAt())) {
+                        return 1;
+                    } else return 0;
+                }
             }
         });
         notifyDataSetChanged();
@@ -457,7 +468,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
     public List<DIALOG> getDialogs() {
         return this.items;
     }
-    
+
 
     /*
     * LISTENERS
@@ -655,14 +666,15 @@ public class DialogsListAdapter<DIALOG extends IDialog>
             //Set Date
             String formattedDate = null;
 
-            if (dialog.getLastMessage() != null) {
-                Date lastMessageDate = dialog.getLastMessage().getCreatedAt();
+            IMessage lastMessage = dialog.getLastMessage();
+            if (lastMessage != null) {
+                Date lastMessageDate = lastMessage.getCreatedAt();
                 if (datesFormatter != null) formattedDate = datesFormatter.format(lastMessageDate);
                 tvDate.setText(formattedDate == null
                         ? getDateString(lastMessageDate)
                         : formattedDate);
             } else {
-                tvDate.setText(null);
+                tvDate.setVisibility(GONE);
             }
 
             //Set Dialog avatar
@@ -670,13 +682,17 @@ public class DialogsListAdapter<DIALOG extends IDialog>
                 imageLoader.loadImage(ivAvatar, dialog.getDialogPhoto(), null);
             }
 
-            //Set Last message user avatar with check if there is last message
-            if (imageLoader != null && dialog.getLastMessage() != null) {
-                imageLoader.loadImage(ivLastMessageUser, dialog.getLastMessage().getUser().getAvatar(), null);
+            //Set Last message user avatar
+            List users = dialog.getUsers();
+            if (users != null) {
+                if (imageLoader != null && lastMessage != null) {
+                    imageLoader.loadImage(ivLastMessageUser, lastMessage.getUser().getAvatar(), null);
+                }
+                ivLastMessageUser.setVisibility(dialogStyle.isDialogMessageAvatarEnabled()
+                        && users.size() > 1 ? VISIBLE : GONE);
+            } else {
+                ivLastMessageUser.setVisibility(GONE);
             }
-            ivLastMessageUser.setVisibility(dialogStyle.isDialogMessageAvatarEnabled()
-                    && dialog.getUsers().size() > 1
-                    && dialog.getLastMessage() != null ? VISIBLE : GONE);
 
             //Set Last message text
             if (dialog.getLastMessage() != null) {
