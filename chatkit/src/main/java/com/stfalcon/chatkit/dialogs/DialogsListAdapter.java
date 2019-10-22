@@ -18,9 +18,6 @@ package com.stfalcon.chatkit.dialogs;
 
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +38,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -448,6 +449,15 @@ public class DialogsListAdapter<DIALOG extends IDialog>
     public int getDialogPosition(DIALOG dialog) {
         return this.items.indexOf(dialog);
     }
+
+    /**
+     * <b>NOTE: Do not manually modify and re-feed this list into the adapter.</b>
+     * @return the list of dialogs as currently present in the adapter
+     */
+    public List<DIALOG> getDialogs() {
+        return this.items;
+    }
+    
 
     /*
     * LISTENERS
