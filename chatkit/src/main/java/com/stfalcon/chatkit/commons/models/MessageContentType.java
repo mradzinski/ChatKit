@@ -16,8 +16,9 @@
 
 package com.stfalcon.chatkit.commons.models;
 
-import androidx.annotation.Nullable;
 import com.stfalcon.chatkit.messages.MessageHolders;
+
+import androidx.annotation.Nullable;
 
 /*
  * Created by troy379 on 28.03.17.
@@ -32,7 +33,7 @@ public interface MessageContentType extends IMessage {
     /**
      * Default media type for image message.
      */
-    interface Image extends IMessage {
+    interface Image extends MessageContentType {
         @Nullable
         String getImageUrl();
     }
