@@ -40,5 +40,7 @@ public interface IDialog<MESSAGE extends IMessage> {
 
     void setLastMessage(MESSAGE message);
 
+    String getDefaultLastMessageWhenEmpty();
+
     int getUnreadCount();
 }

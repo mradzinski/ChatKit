@@ -66,4 +66,9 @@ public class Dialog implements IDialog<Message> {
     public void setUnreadCount(int unreadCount) {
         this.unreadCount = unreadCount;
     }
+
+    @Override
+    public String getDefaultLastMessageWhenEmpty() {
+        return "Start chatting with " + getDialogName();
+    }
 }

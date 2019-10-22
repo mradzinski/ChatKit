@@ -331,19 +331,19 @@ public class DialogsListAdapter<DIALOG extends IDialog>
         Collections.sort(items, new Comparator<DIALOG>() {
             @Override
             public int compare(DIALOG o1, DIALOG o2) {
-                IMessage lastO1 = o1.getLastMessage();
-                IMessage lastO2 = o2.getLastMessage();
+                IMessage lastMessageO1 = o1.getLastMessage();
+                IMessage lastMessageO2 = o2.getLastMessage();
 
-                if(lastO1 == null && lastO2 == null) {
+                if(lastMessageO1 == null && lastMessageO2 == null) {
                     return 0;
-                } else if (lastO1 != null && lastO2 == null) {
+                } else if (lastMessageO1 != null && lastMessageO2 == null) {
                     return -1;
-                } else if (lastO1 == null) {
+                } else if (lastMessageO1 == null) {
                     return 1;
                 } else {
-                    if (lastO1.getCreatedAt().after(lastO2.getCreatedAt())) {
+                    if (lastMessageO1.getCreatedAt().after(lastMessageO2.getCreatedAt())) {
                         return -1;
-                    } else if (lastO1.getCreatedAt().before(lastO2.getCreatedAt())) {
+                    } else if (lastMessageO1.getCreatedAt().before(lastMessageO2.getCreatedAt())) {
                         return 1;
                     } else return 0;
                 }
@@ -695,10 +695,14 @@ public class DialogsListAdapter<DIALOG extends IDialog>
             }
 
             //Set Last message text
-            if (dialog.getLastMessage() != null) {
+            if (lastMessage != null) {
                 tvLastMessage.setText(dialog.getLastMessage().getText());
             } else {
-                tvLastMessage.setText(null);
+                if (!dialog.getDefaultLastMessageWhenEmpty().isEmpty()) {
+                    tvLastMessage.setText(dialog.getDefaultLastMessageWhenEmpty());
+                } else {
+                    tvLastMessage.setVisibility(GONE);
+                }
             }
 
             //Set Unread message count bubble
