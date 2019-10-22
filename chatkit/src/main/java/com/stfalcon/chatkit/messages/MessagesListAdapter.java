@@ -19,8 +19,6 @@ package com.stfalcon.chatkit.messages;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import androidx.annotation.LayoutRes;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.util.SparseArray;
@@ -40,6 +38,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
+import androidx.annotation.LayoutRes;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Adapter for {@link MessagesList}.
@@ -680,7 +681,11 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
         this.layoutManager = layoutManager;
     }
 
-    void setStyle(MessagesListStyle style) {
+    public MessagesListStyle getStyle() {
+        return this.messagesListStyle;
+    }
+
+    public void setStyle(MessagesListStyle style) {
         this.messagesListStyle = style;
     }
 

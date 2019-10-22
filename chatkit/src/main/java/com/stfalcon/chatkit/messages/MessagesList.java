@@ -17,14 +17,15 @@
 package com.stfalcon.chatkit.messages;
 
 import android.content.Context;
+import android.util.AttributeSet;
+
+import com.stfalcon.chatkit.commons.models.IMessage;
+
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
-import android.util.AttributeSet;
-
-import com.stfalcon.chatkit.commons.models.IMessage;
 
 /**
  * Component for displaying list of messages
@@ -93,5 +94,13 @@ public class MessagesList extends RecyclerView {
     @SuppressWarnings("ResourceType")
     private void parseStyle(Context context, AttributeSet attrs) {
         messagesListStyle = MessagesListStyle.parse(context, attrs);
+    }
+
+    public MessagesListStyle getStyle() {
+        return this.messagesListStyle;
+    }
+
+    public void setStyle(MessagesListStyle messagesListStyle) {
+        this.messagesListStyle = messagesListStyle;
     }
 }
