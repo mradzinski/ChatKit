@@ -50,12 +50,12 @@ public class MessageHolders {
 
     public MessageHolders() {
         this.dateHeaderHolder = DefaultDateHeaderViewHolder.class;
-        this.dateHeaderLayout = R.layout.item_date_header;
+        this.dateHeaderLayout = R.layout.chatkit_item_date_header;
 
-        this.incomingTextConfig = new HolderConfig<>(DefaultIncomingTextMessageViewHolder.class, R.layout.item_incoming_text_message);
-        this.outcomingTextConfig = new HolderConfig<>(DefaultOutcomingTextMessageViewHolder.class, R.layout.item_outcoming_text_message);
-        this.incomingImageConfig = new HolderConfig<>(DefaultIncomingImageMessageViewHolder.class, R.layout.item_incoming_image_message);
-        this.outcomingImageConfig = new HolderConfig<>(DefaultOutcomingImageMessageViewHolder.class, R.layout.item_outcoming_image_message);
+        this.incomingTextConfig = new HolderConfig<>(DefaultIncomingTextMessageViewHolder.class, R.layout.chatkit_item_incoming_text_message);
+        this.outcomingTextConfig = new HolderConfig<>(DefaultOutcomingTextMessageViewHolder.class, R.layout.chatkit_item_outcoming_text_message);
+        this.incomingImageConfig = new HolderConfig<>(DefaultIncomingImageMessageViewHolder.class, R.layout.chatkit_item_incoming_image_message);
+        this.outcomingImageConfig = new HolderConfig<>(DefaultOutcomingImageMessageViewHolder.class, R.layout.chatkit_item_outcoming_image_message);
     }
 
     /**

@@ -224,7 +224,7 @@ public class MessageInput extends RelativeLayout
     }
 
     private void init(Context context) {
-        inflate(context, R.layout.view_message_input, this);
+        inflate(context, R.layout.chatkit_view_message_input, this);
 
         messageInput = (EditText) findViewById(R.id.messageInput);
         messageSendButton = (ImageButton) findViewById(R.id.messageSendButton);

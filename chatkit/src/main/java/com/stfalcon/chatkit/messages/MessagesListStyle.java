@@ -282,7 +282,7 @@ class MessagesListStyle extends Style {
     protected Drawable getOutcomingBubbleDrawable() {
         if (outcomingBubbleDrawable == -1) {
             return getMessageSelector(outcomingDefaultBubbleColor, outcomingDefaultBubbleSelectedColor,
-                    outcomingDefaultBubblePressedColor, R.drawable.shape_outcoming_message);
+                    outcomingDefaultBubblePressedColor, R.drawable.chatkit_shape_outcoming_message);
         } else {
             return getDrawable(outcomingBubbleDrawable);
         }
@@ -291,7 +291,7 @@ class MessagesListStyle extends Style {
     protected Drawable getOutcomingImageOverlayDrawable() {
         if (outcomingImageOverlayDrawable == -1) {
             return getMessageSelector(Color.TRANSPARENT, outcomingDefaultImageOverlaySelectedColor,
-                    outcomingDefaultImageOverlayPressedColor, R.drawable.shape_outcoming_message);
+                    outcomingDefaultImageOverlayPressedColor, R.drawable.chatkit_shape_outcoming_message);
         } else {
             return getDrawable(outcomingImageOverlayDrawable);
         }
@@ -396,7 +396,7 @@ class MessagesListStyle extends Style {
     protected Drawable getIncomingBubbleDrawable() {
         if (incomingBubbleDrawable == -1) {
             return getMessageSelector(incomingDefaultBubbleColor, incomingDefaultBubbleSelectedColor,
-                    incomingDefaultBubblePressedColor, R.drawable.shape_incoming_message);
+                    incomingDefaultBubblePressedColor, R.drawable.chatkit_shape_incoming_message);
         } else {
             return getDrawable(incomingBubbleDrawable);
         }
@@ -405,7 +405,7 @@ class MessagesListStyle extends Style {
     protected Drawable getIncomingImageOverlayDrawable() {
         if (incomingImageOverlayDrawable == -1) {
             return getMessageSelector(Color.TRANSPARENT, incomingDefaultImageOverlaySelectedColor,
-                    incomingDefaultImageOverlayPressedColor, R.drawable.shape_incoming_message);
+                    incomingDefaultImageOverlayPressedColor, R.drawable.chatkit_shape_incoming_message);
         } else {
             return getDrawable(incomingImageOverlayDrawable);
         }

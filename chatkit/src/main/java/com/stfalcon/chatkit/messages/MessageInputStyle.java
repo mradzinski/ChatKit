@@ -181,13 +181,13 @@ class MessageInputStyle extends Style {
     }
 
     protected Drawable getAttachmentButtonBackground() {
-        int shape = attachmentButtonBackground != -1 ? attachmentButtonBackground : R.drawable.mask;
+        int shape = attachmentButtonBackground != -1 ? attachmentButtonBackground : R.drawable.chatkit_mask;
         return getSelector(attachmentButtonDefaultBgColor, attachmentButtonDefaultBgPressedColor,
                 attachmentButtonDefaultBgDisabledColor, shape);
     }
 
     protected Drawable getAttachmentButtonIcon() {
-        int shape = attachmentButtonIcon != -1 ? attachmentButtonIcon : R.drawable.ic_add_attachment;
+        int shape = attachmentButtonIcon != -1 ? attachmentButtonIcon : R.drawable.chatkit_ic_add_attachment;
         return getSelector(attachmentButtonDefaultIconColor, attachmentButtonDefaultIconPressedColor,
                 attachmentButtonDefaultIconDisabledColor, shape);
     }
@@ -205,13 +205,13 @@ class MessageInputStyle extends Style {
     }
 
     protected Drawable getInputButtonBackground() {
-        int shape = inputButtonBackground != -1 ? inputButtonBackground : R.drawable.mask;
+        int shape = inputButtonBackground != -1 ? inputButtonBackground : R.drawable.chatkit_mask;
         return getSelector(inputButtonDefaultBgColor, inputButtonDefaultBgPressedColor,
                 inputButtonDefaultBgDisabledColor, shape);
     }
 
     protected Drawable getInputButtonIcon() {
-        int shape = inputButtonIcon != -1 ? inputButtonIcon : R.drawable.ic_send;
+        int shape = inputButtonIcon != -1 ? inputButtonIcon : R.drawable.chatkit_ic_send;
         return getSelector(inputButtonDefaultIconColor, inputButtonDefaultIconPressedColor,
                 inputButtonDefaultIconDisabledColor, shape);
     }
