@@ -793,8 +793,8 @@ public class MessageHolders {
         }
 
         private void init(View itemView) {
-            bubble = (ViewGroup) itemView.findViewById(R.id.bubble);
-            text = (TextView) itemView.findViewById(R.id.messageText);
+            bubble = (ViewGroup) itemView.findViewById(R.id.chatkit_bubble);
+            text = (TextView) itemView.findViewById(R.id.chatkit_messageText);
         }
     }
 
@@ -852,8 +852,8 @@ public class MessageHolders {
         }
 
         private void init(View itemView) {
-            bubble = (ViewGroup) itemView.findViewById(R.id.bubble);
-            text = (TextView) itemView.findViewById(R.id.messageText);
+            bubble = (ViewGroup) itemView.findViewById(R.id.chatkit_bubble);
+            text = (TextView) itemView.findViewById(R.id.chatkit_messageText);
         }
     }
 
@@ -913,8 +913,8 @@ public class MessageHolders {
         }
 
         private void init(View itemView) {
-            image = (ImageView) itemView.findViewById(R.id.image);
-            imageOverlay = itemView.findViewById(R.id.imageOverlay);
+            image = (ImageView) itemView.findViewById(R.id.chatkit_image);
+            imageOverlay = itemView.findViewById(R.id.chatkit_imageOverlay);
 
             if (image instanceof RoundedImageView) {
                 ((RoundedImageView) image).setCorners(
@@ -983,8 +983,8 @@ public class MessageHolders {
         }
 
         private void init(View itemView) {
-            image = (ImageView) itemView.findViewById(R.id.image);
-            imageOverlay = itemView.findViewById(R.id.imageOverlay);
+            image = (ImageView) itemView.findViewById(R.id.chatkit_image);
+            imageOverlay = itemView.findViewById(R.id.chatkit_imageOverlay);
 
             if (image instanceof RoundedImageView) {
                 ((RoundedImageView) image).setCorners(
@@ -1009,7 +1009,7 @@ public class MessageHolders {
 
         public DefaultDateHeaderViewHolder(View itemView) {
             super(itemView);
-            text = (TextView) itemView.findViewById(R.id.messageText);
+            text = (TextView) itemView.findViewById(R.id.chatkit_messageText);
         }
 
         @Override
@@ -1089,8 +1089,8 @@ public class MessageHolders {
         }
 
         private void init(View itemView) {
-            time = (TextView) itemView.findViewById(R.id.messageTime);
-            userAvatar = (ImageView) itemView.findViewById(R.id.messageUserAvatar);
+            time = (TextView) itemView.findViewById(R.id.chatkit_messageTime);
+            userAvatar = (ImageView) itemView.findViewById(R.id.chatkit_messageUserAvatar);
         }
     }
 
@@ -1130,7 +1130,7 @@ public class MessageHolders {
         }
 
         private void init(View itemView) {
-            time = (TextView) itemView.findViewById(R.id.messageTime);
+            time = (TextView) itemView.findViewById(R.id.chatkit_messageTime);
         }
     }
 

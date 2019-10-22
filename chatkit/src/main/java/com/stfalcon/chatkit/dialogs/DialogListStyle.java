@@ -82,48 +82,48 @@ class DialogListStyle extends Style {
 
         //Title text
         style.dialogTitleTextColor = typedArray.getColor(R.styleable.DialogsList_dialogTitleTextColor,
-                style.getColor(R.color.dialog_title_text));
+                style.getColor(R.color.chatkit_dialog_title_text));
         style.dialogTitleTextSize = typedArray.getDimensionPixelSize(R.styleable.DialogsList_dialogTitleTextSize,
                 context.getResources().getDimensionPixelSize(R.dimen.dialog_title_text_size));
         style.dialogTitleTextStyle = typedArray.getInt(R.styleable.DialogsList_dialogTitleTextStyle, Typeface.NORMAL);
 
         //Title unread text
         style.dialogUnreadTitleTextColor = typedArray.getColor(R.styleable.DialogsList_dialogUnreadTitleTextColor,
-                style.getColor(R.color.dialog_title_text));
+                style.getColor(R.color.chatkit_dialog_title_text));
         style.dialogUnreadTitleTextStyle = typedArray.getInt(R.styleable.DialogsList_dialogUnreadTitleTextStyle, Typeface.NORMAL);
 
         //Message text
         style.dialogMessageTextColor = typedArray.getColor(R.styleable.DialogsList_dialogMessageTextColor,
-                style.getColor(R.color.dialog_message_text));
+                style.getColor(R.color.chatkit_dialog_message_text));
         style.dialogMessageTextSize = typedArray.getDimensionPixelSize(R.styleable.DialogsList_dialogMessageTextSize,
                 context.getResources().getDimensionPixelSize(R.dimen.dialog_message_text_size));
         style.dialogMessageTextStyle = typedArray.getInt(R.styleable.DialogsList_dialogMessageTextStyle, Typeface.NORMAL);
 
         //Message unread text
         style.dialogUnreadMessageTextColor = typedArray.getColor(R.styleable.DialogsList_dialogUnreadMessageTextColor,
-                style.getColor(R.color.dialog_message_text));
+                style.getColor(R.color.chatkit_dialog_message_text));
         style.dialogUnreadMessageTextStyle = typedArray.getInt(R.styleable.DialogsList_dialogUnreadMessageTextStyle, Typeface.NORMAL);
 
         //Date text
         style.dialogDateColor = typedArray.getColor(R.styleable.DialogsList_dialogDateColor,
-                style.getColor(R.color.dialog_date_text));
+                style.getColor(R.color.chatkit_dialog_date_text));
         style.dialogDateSize = typedArray.getDimensionPixelSize(R.styleable.DialogsList_dialogDateSize,
                 context.getResources().getDimensionPixelSize(R.dimen.dialog_date_text_size));
         style.dialogDateStyle = typedArray.getInt(R.styleable.DialogsList_dialogDateStyle, Typeface.NORMAL);
 
         //Date unread text
         style.dialogUnreadDateColor = typedArray.getColor(R.styleable.DialogsList_dialogUnreadDateColor,
-                style.getColor(R.color.dialog_date_text));
+                style.getColor(R.color.chatkit_dialog_date_text));
         style.dialogUnreadDateStyle = typedArray.getInt(R.styleable.DialogsList_dialogUnreadDateStyle, Typeface.NORMAL);
 
         //Unread bubble
         style.dialogUnreadBubbleEnabled = typedArray.getBoolean(R.styleable.DialogsList_dialogUnreadBubbleEnabled, true);
         style.dialogUnreadBubbleBackgroundColor = typedArray.getColor(R.styleable.DialogsList_dialogUnreadBubbleBackgroundColor,
-                style.getColor(R.color.dialog_unread_bubble));
+                style.getColor(R.color.chatkit_dialog_unread_bubble));
 
         //Unread bubble text
         style.dialogUnreadBubbleTextColor = typedArray.getColor(R.styleable.DialogsList_dialogUnreadBubbleTextColor,
-                style.getColor(R.color.dialog_unread_text));
+                style.getColor(R.color.chatkit_dialog_unread_text));
         style.dialogUnreadBubbleTextSize = typedArray.getDimensionPixelSize(R.styleable.DialogsList_dialogUnreadBubbleTextSize,
                 context.getResources().getDimensionPixelSize(R.dimen.dialog_unread_bubble_text_size));
         style.dialogUnreadBubbleTextStyle = typedArray.getInt(R.styleable.DialogsList_dialogUnreadBubbleTextStyle, Typeface.NORMAL);
@@ -143,7 +143,7 @@ class DialogListStyle extends Style {
 
         //Divider
         style.dialogDividerEnabled = typedArray.getBoolean(R.styleable.DialogsList_dialogDividerEnabled, true);
-        style.dialogDividerColor = typedArray.getColor(R.styleable.DialogsList_dialogDividerColor, style.getColor(R.color.dialog_divider));
+        style.dialogDividerColor = typedArray.getColor(R.styleable.DialogsList_dialogDividerColor, style.getColor(R.color.chatkit_dialog_divider));
         style.dialogDividerLeftPadding = typedArray.getDimensionPixelSize(R.styleable.DialogsList_dialogDividerLeftPadding,
                 context.getResources().getDimensionPixelSize(R.dimen.dialog_divider_margin_left));
         style.dialogDividerRightPadding = typedArray.getDimensionPixelSize(R.styleable.DialogsList_dialogDividerRightPadding,

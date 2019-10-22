@@ -8,7 +8,7 @@
     android:layout_marginTop="8dp">
 
     <com.stfalcon.chatkit.utils.RoundedImageView
-        android:id="@id/image"
+        android:id="@id/chatkit_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -16,22 +16,22 @@
         android:layout_marginStart="@dimen/message_outcoming_bubble_margin_left"/>
 
     <View
-        android:id="@id/imageOverlay"
+        android:id="@id/chatkit_imageOverlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/image"
-        android:layout_alignEnd="@id/image"
-        android:layout_alignLeft="@id/image"
-        android:layout_alignRight="@id/image"
-        android:layout_alignStart="@id/image"
-        android:layout_alignTop="@id/image"/>
+        android:layout_alignBottom="@id/chatkit_image"
+        android:layout_alignEnd="@id/chatkit_image"
+        android:layout_alignLeft="@id/chatkit_image"
+        android:layout_alignRight="@id/chatkit_image"
+        android:layout_alignStart="@id/chatkit_image"
+        android:layout_alignTop="@id/chatkit_image"/>
 
     <TextView
-        android:id="@id/messageTime"
+        android:id="@id/chatkit_messageTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/image"
-        android:layout_alignRight="@id/image"
-        android:layout_below="@id/image"/>
+        android:layout_alignEnd="@id/chatkit_image"
+        android:layout_alignRight="@id/chatkit_image"
+        android:layout_below="@id/chatkit_image"/>
 
 </RelativeLayout>

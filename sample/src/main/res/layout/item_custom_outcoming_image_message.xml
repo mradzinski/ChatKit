@@ -9,7 +9,7 @@
     android:layout_marginTop="8dp">
 
     <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-        android:id="@id/image"
+        android:id="@id/chatkit_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/message_outcoming_bubble_margin_left"
@@ -19,12 +19,12 @@
         app:siSquare="false"/>
 
     <TextView
-        android:id="@id/messageTime"
+        android:id="@id/chatkit_messageTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/image"
-        android:layout_alignStart="@id/image"
-        android:layout_below="@id/image"
+        android:layout_alignLeft="@id/chatkit_image"
+        android:layout_alignStart="@id/chatkit_image"
+        android:layout_below="@id/chatkit_image"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"/>
 

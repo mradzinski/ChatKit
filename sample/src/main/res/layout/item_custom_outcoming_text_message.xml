@@ -8,7 +8,7 @@
     android:layout_marginTop="8dp">
 
     <LinearLayout
-        android:id="@id/bubble"
+        android:id="@id/chatkit_bubble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -18,19 +18,19 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@id/messageText"
+            android:id="@id/chatkit_messageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
     <TextView
-        android:id="@id/messageTime"
+        android:id="@id/chatkit_messageTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/bubble"
-        android:layout_alignStart="@id/bubble"
-        android:layout_below="@id/bubble"
+        android:layout_alignLeft="@id/chatkit_bubble"
+        android:layout_alignStart="@id/chatkit_bubble"
+        android:layout_below="@id/chatkit_bubble"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"/>
 

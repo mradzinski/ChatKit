@@ -120,14 +120,14 @@ public class MessageInput extends RelativeLayout
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.id.messageSendButton) {
+        if (id == R.id.chatkit_messageSendButton) {
             boolean isSubmitted = onSubmit();
             if (isSubmitted) {
                 messageInput.setText("");
             }
             removeCallbacks(typingTimerRunnable);
             post(typingTimerRunnable);
-        } else if (id == R.id.attachmentButton) {
+        } else if (id == R.id.chatkit_attachmentButton) {
             onAddAttachments();
         }
     }
@@ -192,11 +192,11 @@ public class MessageInput extends RelativeLayout
     private void init(Context context) {
         inflate(context, R.layout.chatkit_view_message_input, this);
 
-        messageInput = (EditText) findViewById(R.id.messageInput);
-        messageSendButton = (ImageButton) findViewById(R.id.messageSendButton);
-        attachmentButton = (ImageButton) findViewById(R.id.attachmentButton);
-        sendButtonSpace = (Space) findViewById(R.id.sendButtonSpace);
-        attachmentButtonSpace = (Space) findViewById(R.id.attachmentButtonSpace);
+        messageInput = (EditText) findViewById(R.id.chatkit_messageInput);
+        messageSendButton = (ImageButton) findViewById(R.id.chatkit_messageSendButton);
+        attachmentButton = (ImageButton) findViewById(R.id.chatkit_attachmentButton);
+        sendButtonSpace = (Space) findViewById(R.id.chatkit_sendButtonSpace);
+        attachmentButtonSpace = (Space) findViewById(R.id.chatkit_attachmentButtonSpace);
 
         messageSendButton.setOnClickListener(this);
         attachmentButton.setOnClickListener(this);

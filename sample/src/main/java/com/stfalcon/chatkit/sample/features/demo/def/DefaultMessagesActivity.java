@@ -57,7 +57,7 @@ public class DefaultMessagesActivity extends DemoMessagesActivity
         super.messagesAdapter = new MessagesListAdapter<>(super.senderId, super.imageLoader);
         super.messagesAdapter.enableSelectionMode(this);
         super.messagesAdapter.setLoadMoreListener(this);
-        super.messagesAdapter.registerViewClickListener(R.id.messageUserAvatar,
+        super.messagesAdapter.registerViewClickListener(R.id.chatkit_messageUserAvatar,
                 new MessagesListAdapter.OnMessageViewClickListener<Message>() {
                     @Override
                     public void onMessageViewClick(View view, Message message) {

@@ -8,7 +8,7 @@
     android:layout_marginTop="8dp">
 
     <LinearLayout
-        android:id="@id/bubble"
+        android:id="@id/chatkit_bubble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -39,9 +39,9 @@
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/bubble"
-        android:layout_alignStart="@id/bubble"
-        android:layout_below="@id/bubble"
+        android:layout_alignLeft="@id/chatkit_bubble"
+        android:layout_alignStart="@id/chatkit_bubble"
+        android:layout_below="@id/chatkit_bubble"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:textColor="@color/gray_dark"
