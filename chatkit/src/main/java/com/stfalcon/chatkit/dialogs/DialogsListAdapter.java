@@ -325,7 +325,7 @@ public class DialogsListAdapter<DIALOG extends IDialog>
     }
 
     /**
-     * Sort dialog by last message date
+     * Sort dialog by last message date and/or dialog creation date
      */
     public void sortByLastMessageDate() {
         Collections.sort(items, new Comparator<DIALOG>() {
@@ -333,20 +333,14 @@ public class DialogsListAdapter<DIALOG extends IDialog>
             public int compare(DIALOG o1, DIALOG o2) {
                 IMessage lastMessageO1 = o1.getLastMessage();
                 IMessage lastMessageO2 = o2.getLastMessage();
+                Date o1Date = lastMessageO1 == null ? o1.getCreatedAt() : lastMessageO1.getCreatedAt();
+                Date o2Date = lastMessageO2 == null ? o2.getCreatedAt() : lastMessageO2.getCreatedAt();
 
-                if(lastMessageO1 == null && lastMessageO2 == null) {
-                    return 0;
-                } else if (lastMessageO1 != null && lastMessageO2 == null) {
+                if (o1Date.after(o2Date)) {
                     return -1;
-                } else if (lastMessageO1 == null) {
+                } else if (o1Date.before(o2Date)) {
                     return 1;
-                } else {
-                    if (lastMessageO1.getCreatedAt().after(lastMessageO2.getCreatedAt())) {
-                        return -1;
-                    } else if (lastMessageO1.getCreatedAt().before(lastMessageO2.getCreatedAt())) {
-                        return 1;
-                    } else return 0;
-                }
+                } else return 0;
             }
         });
         notifyDataSetChanged();
@@ -663,19 +657,14 @@ public class DialogsListAdapter<DIALOG extends IDialog>
             //Set Name
             tvName.setText(dialog.getDialogName());
 
-            //Set Date
+            //Set Date by last message or dialog creation date
             String formattedDate = null;
-
             IMessage lastMessage = dialog.getLastMessage();
-            if (lastMessage != null) {
-                Date lastMessageDate = lastMessage.getCreatedAt();
-                if (datesFormatter != null) formattedDate = datesFormatter.format(lastMessageDate);
-                tvDate.setText(formattedDate == null
-                        ? getDateString(lastMessageDate)
-                        : formattedDate);
-            } else {
-                tvDate.setVisibility(GONE);
-            }
+            Date dialogDate = lastMessage != null ? lastMessage.getCreatedAt() : dialog.getCreatedAt();
+            if (datesFormatter != null) formattedDate = datesFormatter.format(dialogDate);
+            tvDate.setText(formattedDate == null
+                    ? getDateString(dialogDate)
+                    : formattedDate);
 
             //Set Dialog avatar
             if (imageLoader != null) {

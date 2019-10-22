@@ -3,6 +3,7 @@ package com.stfalcon.chatkit.sample.common.data.model;
 import com.stfalcon.chatkit.commons.models.IDialog;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /*
  * Created by troy379 on 04.04.17.
@@ -71,4 +72,7 @@ public class Dialog implements IDialog<Message> {
     public String getDefaultLastMessageWhenEmpty() {
         return "Start chatting with " + getDialogName();
     }
+
+    @Override
+    public Date getCreatedAt() {return new Date();}
 }

@@ -16,6 +16,7 @@
 
 package com.stfalcon.chatkit.commons.models;
 
+import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.Nullable;
@@ -31,6 +32,8 @@ public interface IDialog<MESSAGE extends IMessage> {
     String getDialogPhoto();
 
     String getDialogName();
+
+    Date getCreatedAt();
 
     @Nullable
     List<? extends IUser> getUsers();
