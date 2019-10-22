@@ -10,7 +10,7 @@ android {
     defaultConfig {
         minSdkVersion 14
         versionCode 1
-        versionName "0.3.3"
+        versionName "0.5.0"
         consumerProguardFiles 'proguard.txt'
     }
     android {
