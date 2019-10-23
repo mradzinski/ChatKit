@@ -40,6 +40,7 @@ import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -70,13 +71,21 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
     private DateFormatter.Formatter dateHeadersFormatter;
     private SparseArray<OnMessageViewClickListener> viewClickListenersArray = new SparseArray<>();
 
+    public MessagesListAdapter(ImageLoader imageLoader) {
+        this((String) null, imageLoader);
+    }
+
+    public MessagesListAdapter(MessageHolders holders, ImageLoader imageLoader) {
+        this(null, holders, imageLoader);
+    }
+
     /**
      * For default list item layout and view holder.
      *
      * @param senderId    identifier of sender.
      * @param imageLoader image loading method.
      */
-    public MessagesListAdapter(String senderId, ImageLoader imageLoader) {
+    public MessagesListAdapter(@Nullable String senderId, ImageLoader imageLoader) {
         this(senderId, new MessageHolders(), imageLoader);
     }
 
@@ -87,7 +96,7 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
      * @param holders     custom layouts and view holders. See {@link MessageHolders} documentation for details
      * @param imageLoader image loading method.
      */
-    public MessagesListAdapter(String senderId, MessageHolders holders,
+    public MessagesListAdapter(@Nullable String senderId, MessageHolders holders,
                                ImageLoader imageLoader) {
         this.senderId = senderId;
         this.holders = holders;
@@ -142,6 +151,15 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
     /*
      * PUBLIC METHODS
      * */
+
+    /**
+     * Sets the sender id for this adapter instance. Note that this will override
+     * any id previously set.
+     * @param senderId The sender id.
+     */
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
 
     /**
      * Adds message to bottom of list and scroll if needed.

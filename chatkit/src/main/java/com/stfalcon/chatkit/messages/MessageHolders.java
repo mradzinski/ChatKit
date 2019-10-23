@@ -26,6 +26,7 @@ import java.util.List;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 
 /*
@@ -597,16 +598,23 @@ public class MessageHolders {
     }
 
 
-    protected int getViewType(Object item, String senderId) {
+    protected int getViewType(Object item, @Nullable String senderId) {
         boolean isOutcoming = false;
+
         int viewType;
 
         if (item instanceof IMessage) {
-            IMessage message = (IMessage) item;
-            isOutcoming = message.getUser().getId().contentEquals(senderId);
-            viewType = getContentViewType(message);
-
-        } else viewType = VIEW_TYPE_DATE_HEADER;
+            if (senderId != null) {
+                IMessage message = (IMessage) item;
+                isOutcoming = message.getUser().getId().contentEquals(senderId);
+                viewType = getContentViewType(message);
+            } else {
+                throw new IllegalStateException("Missing senderId. Did you call setSenderId or " +
+                        "passed it in the constructor?");
+            }
+        } else {
+            viewType = VIEW_TYPE_DATE_HEADER;
+        }
 
         return isOutcoming ? viewType * -1 : viewType;
     }
